@@ -1,6 +1,6 @@
 ## Import libraries and functions
 import requests
-from functions.formulate_headers_for_tenant_call import *
+from functions.signalspki.formulate_headers_for_tenant_call import *
 
 ## Retrieve the entoty object EID from its name
 def get_entity_eid_from_name(tenant_url: str, tenant_authentication: dict, entity_type: str, entity_name: str):

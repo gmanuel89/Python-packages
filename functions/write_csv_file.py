@@ -1,7 +1,6 @@
 ## Import libraries
 import csv
 
-
 ## Write CSV content into a file
 def write_csv_file(csv_file_content: list[list] | list[dict], output_file_name: str) -> None:
     # Check output file name
