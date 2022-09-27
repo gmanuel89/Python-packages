@@ -5,7 +5,7 @@ import sys
 ## Read input csv file (returns a list of rows)
 def read_csv_file(input_csv_file: str, output_format='list') -> list[list] | list[dict]:
     ## Open the CSV file
-    with open(input_csv_file, 'r', encoding='UTF8') as input_file:
+    with open(input_csv_file, 'r', encoding='utf-8-sig', newline='') as input_file:
         # Prevent possible errors due to large columns (beyond 131072 characters)
         try:
             if output_format == 'list':
