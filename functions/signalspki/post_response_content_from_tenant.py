@@ -1,7 +1,7 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
-# Updated date: 2022-10-06
+# Updated date: 2022-10-07
 #####
 
 ## Import libraries and functions
@@ -9,7 +9,7 @@ from functions.signalspki.formulate_headers_for_tenant_call import *
 import requests
 
 ## POST to a tenant and get the response from the tenant
-def post_response_content_from_tenant(tenant_url: str, tenant_api_url_suffix: str, tenant_authentication: dict, payload_for_post_request: dict, additional_headers={}, file_to_upload=[], output_type='json') -> dict | str:
+def post_response_content_from_tenant(tenant_url: str, tenant_api_url_suffix: str, tenant_authentication: dict, payload_for_post_request: dict | str, additional_headers={}, file_to_upload={}, output_type='json') -> dict | str:
     # Initialise output variable
     tenant_response_content = None
     # Formulate headers
@@ -24,10 +24,23 @@ def post_response_content_from_tenant(tenant_url: str, tenant_api_url_suffix: st
     tenant_api_url = tenant_url + '/' + tenant_api_url_suffix
     # Call the API
     try:
-        tenant_response = requests.post(tenant_api_url, headers=headers_api_call, json=payload_for_post_request, data=file_to_upload)
+        # with files to upload
+        if len(file_to_upload) > 0:
+            # encode the payload body for file upload
+            body, content_type = requests.models.encode_multipart_formdata(file_to_upload)
+            # fix the headers
+            headers_api_call = headers_api_call | {'Content-Type': content_type}
+            # make the POST call
+            tenant_response = requests.post(tenant_api_url, headers=headers_api_call, data=body)
+        # without files to upload
+        else:
+            tenant_response = requests.post(tenant_api_url, headers=headers_api_call, data=payload_for_post_request)
+        # Collect response
         if tenant_response.ok:
+            # json format
             if str(output_type).lower() == 'json':
                 tenant_response_content = tenant_response.json()
+            # raw text file
             else:
                 tenant_response_content = tenant_response.text
         else: print (tenant_response.text)
