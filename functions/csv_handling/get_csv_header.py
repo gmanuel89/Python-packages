@@ -1,3 +1,9 @@
+#####
+# Author: Manuel Galli
+# e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
+# Updated date: 2022-10-07
+#####
+
 ## Get CSV header
 def get_csv_header(input_csv_file: list[list] | list[dict]) -> list[str]:
     if isinstance(input_csv_file[0], list):
