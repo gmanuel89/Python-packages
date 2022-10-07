@@ -1,3 +1,9 @@
+#####
+# Author: Manuel Galli
+# e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
+# Updated date: 2022-10-07
+#####
+
 ## Filter a list according to a provided list
 def filter_list(input_list: list[str], selected_list_entries: list[str]) -> list[str]:
     # Initialise output variable

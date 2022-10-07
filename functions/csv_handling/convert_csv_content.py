@@ -1,3 +1,9 @@
+#####
+# Author: Manuel Galli
+# e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
+# Updated date: 2022-10-07
+#####
+
 ## Convert CSV content from list to dictionary or from dictionary to list (automatically)
 def convert_csv_content(csv_content: list[list] | list[dict]) -> list[list] | list[dict]:
     ## Initialise output

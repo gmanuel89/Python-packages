@@ -1,5 +1,12 @@
+#####
+# Author: Manuel Galli
+# e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
+# Updated date: 2022-10-07
+#####
+
 ## Import libraries
 import sys, subprocess, pkg_resources
+
 
 ## Install required packages
 def install_required_packages(required_packages: list[str]) -> None:
