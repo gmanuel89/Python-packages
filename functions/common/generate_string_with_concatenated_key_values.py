@@ -1,3 +1,9 @@
+#####
+# Author: Manuel Galli
+# e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
+# Updated date: 2022-10-07
+#####
+
 ## The function takes two columns as input: the result is a string which concatenates all the values in the 'values_column' (separated by 'string_separator') for each unique 'key_column' value
 def generate_string_with_concatenated_key_values(key_column: list[str], values_column: list[str], string_separator=',', selected_key_values=[]) -> dict:
     # Initialise output

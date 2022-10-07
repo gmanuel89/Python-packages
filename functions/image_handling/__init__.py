@@ -1,0 +1,1 @@
+from functions.image_handling.resize_image import resize_image

@@ -5,7 +5,7 @@
 #####
 
 ## Import libraries and functions
-from functions.signalspki.common.formulate_headers_for_tenant_call import *
+from functions.signalspki.common import *
 import requests
 
 ## PATCH to a tenant and get the response from the tenant

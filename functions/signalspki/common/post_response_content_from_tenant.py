@@ -5,7 +5,7 @@
 #####
 
 ## Import libraries and functions
-from functions.signalspki.common.formulate_headers_for_tenant_call import *
+from functions.signalspki.common import *
 import requests
 
 ## POST to a tenant and get the response from the tenant
@@ -32,9 +32,12 @@ def post_response_content_from_tenant(tenant_url: str, tenant_api_url_suffix: st
             headers_api_call = headers_api_call | {'Content-Type': content_type}
             # make the POST call
             tenant_response = requests.post(tenant_api_url, headers=headers_api_call, data=body)
-        # without files to upload
-        else:
+        # with payload
+        elif len(payload_for_post_request) > 0:
             tenant_response = requests.post(tenant_api_url, headers=headers_api_call, data=payload_for_post_request)
+        # without files to upload or payload
+        else:
+            tenant_response = requests.post(tenant_api_url, headers=headers_api_call, json={})
         # Collect response
         if tenant_response.ok:
             # json format

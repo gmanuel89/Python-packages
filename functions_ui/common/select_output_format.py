@@ -1,6 +1,11 @@
+#####
+# Author: Manuel Galli
+# e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
+# Updated date: 2022-10-07
+#####
+
 ## Import libraries and functions
 import tkinter
-
 
 ### RADIOBUTTONS 
 ## UI function to get the output file format

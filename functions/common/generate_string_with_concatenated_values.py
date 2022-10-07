@@ -1,3 +1,9 @@
+#####
+# Author: Manuel Galli
+# e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
+# Updated date: 2022-10-07
+#####
+
 ## The function result is a string which concatenates all the values in the input 'value_list' (separated by 'string_separator')
 def generate_string_with_concatenated_values(value_list: list[str], string_separator=',', remove_duplicates=False, selected_values=[], better_spacing=False) -> str:
     # Return in case of wrong data types
