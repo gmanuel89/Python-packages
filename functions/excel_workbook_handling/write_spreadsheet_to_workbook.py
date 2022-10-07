@@ -6,7 +6,7 @@
 
 ## Import libraries and functions
 import openpyxl
-from functions.excel_workbook_handling import *
+from functions.excel_workbook_handling.apply_styling_to_spreadsheet import apply_styling_to_spreadsheet
 
 ## Write a CSV dictionary to a Spreadsheet
 def write_spreadsheet_to_workbook(workbook_content: list[dict], sheet_name: str, spreadsheet_workbook: openpyxl.Workbook) -> openpyxl.Workbook:

@@ -5,7 +5,7 @@
 #####
 
 ## Import libraries and functions
-from functions.signalspki.common import *
+from functions.signalspki.common.post_response_content_from_tenant import post_response_content_from_tenant
 import csv
 import tempfile
 

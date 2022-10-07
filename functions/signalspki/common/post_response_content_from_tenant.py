@@ -5,7 +5,7 @@
 #####
 
 ## Import libraries and functions
-from functions.signalspki.common import *
+from functions.signalspki.common.formulate_headers_for_tenant_call import formulate_headers_for_tenant_call
 import requests
 
 ## POST to a tenant and get the response from the tenant

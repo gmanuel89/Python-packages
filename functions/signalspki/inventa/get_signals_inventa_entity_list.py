@@ -5,7 +5,7 @@
 #####
 
 ## Import libraries and functions
-from functions.signalspki.common.get_response_content_from_tenant import *
+from functions.signalspki.common.get_response_content_from_tenant import get_response_content_from_tenant
 
 ## Get list of entities from tenant
 def get_signals_inventa_entity_list(signals_inventa_tenant_url: str, signals_inventa_tenant_authentication: dict) -> dict:
