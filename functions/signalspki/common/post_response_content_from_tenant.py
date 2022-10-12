@@ -1,7 +1,7 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
-# Updated date: 2022-10-07
+# Updated date: 2022-10-12
 #####
 
 ## Import libraries and functions
@@ -46,7 +46,14 @@ def post_response_content_from_tenant(tenant_url: str, tenant_api_url_suffix: st
             # raw text file
             else:
                 tenant_response_content = tenant_response.text
-        else: print (tenant_response.text)
+        else:
+            # json format
+            if str(output_type).lower() == 'json':
+                tenant_response_content = tenant_response.json()
+            # raw text file
+            else:
+                tenant_response_content = tenant_response.text
+            print(tenant_response_content)
     except:
         print('Cannot POST the content to ' + tenant_url)
         pass

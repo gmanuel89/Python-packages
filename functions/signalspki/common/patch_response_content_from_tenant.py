@@ -1,7 +1,7 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
-# Updated date: 2022-10-07
+# Updated date: 2022-10-12
 #####
 
 ## Import libraries and functions
@@ -9,7 +9,7 @@ from functions.signalspki.common.formulate_headers_for_tenant_call import formul
 import requests
 
 ## PATCH to a tenant and get the response from the tenant
-def patch_response_content_from_tenant(tenant_url: str, tenant_api_url_suffix: str, tenant_authentication: dict, payload_for_patch_request) -> dict:
+def patch_response_content_from_tenant(tenant_url: str, tenant_api_url_suffix: str, tenant_authentication: dict, payload_for_patch_request: dict, output_type='json') -> dict:
     # Initialise output variable
     tenant_response_content = None
     # Formulate headers
@@ -24,7 +24,20 @@ def patch_response_content_from_tenant(tenant_url: str, tenant_api_url_suffix: s
     try:
         tenant_response = requests.patch(tenant_api_url, headers=headers_api_call, data=payload_for_patch_request)
         if tenant_response.ok:
-            tenant_response_content = tenant_response.json()
+            # json format
+            if str(output_type).lower() == 'json':
+                tenant_response_content = tenant_response.json()
+            # raw text file
+            else:
+                tenant_response_content = tenant_response.text
+        else:
+            # json format
+            if str(output_type).lower() == 'json':
+                tenant_response_content = tenant_response.json()
+            # raw text file
+            else:
+                tenant_response_content = tenant_response.text
+            print(tenant_response_content)
     except:
         print('Cannot PATCH the content to ' + tenant_url)
         pass
