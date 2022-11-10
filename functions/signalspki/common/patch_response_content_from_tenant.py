@@ -1,7 +1,7 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
-# Updated date: 2022-10-12
+# Updated date: 2022-11-10
 #####
 
 ## Import libraries and functions
@@ -9,7 +9,7 @@ from functions.signalspki.common.formulate_headers_for_tenant_call import formul
 import requests
 
 ## PATCH to a tenant and get the response from the tenant
-def patch_response_content_from_tenant(tenant_url: str, tenant_api_url_suffix: str, tenant_authentication: dict, payload_for_patch_request: dict, output_type='json') -> dict:
+def patch_response_content_from_tenant(tenant_url: str, tenant_api_url_suffix: str, tenant_authentication: dict, payload_for_patch_request: dict, output_type='json') -> dict | str | requests.Response:
     # Initialise output variable
     tenant_response_content = None
     # Formulate headers
@@ -27,6 +27,9 @@ def patch_response_content_from_tenant(tenant_url: str, tenant_api_url_suffix: s
             # json format
             if str(output_type).lower() == 'json':
                 tenant_response_content = tenant_response.json()
+            # Response object
+            elif str(output_type).lower() == 'response':
+                tenant_response_content = tenant_response
             # raw text file
             else:
                 tenant_response_content = tenant_response.text
@@ -34,6 +37,9 @@ def patch_response_content_from_tenant(tenant_url: str, tenant_api_url_suffix: s
             # json format
             if str(output_type).lower() == 'json':
                 tenant_response_content = tenant_response.json()
+            # Response object
+            elif str(output_type).lower() == 'response':
+                tenant_response_content = tenant_response
             # raw text file
             else:
                 tenant_response_content = tenant_response.text

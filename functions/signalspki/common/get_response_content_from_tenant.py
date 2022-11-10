@@ -1,7 +1,7 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
-# Updated date: 2022-10-12
+# Updated date: 2022-11-10
 #####
 
 ## Import libraries and functions
@@ -9,7 +9,7 @@ from functions.signalspki.common.formulate_headers_for_tenant_call import formul
 import requests, io
 
 ## Get the content from the tenant
-def get_response_content_from_tenant(tenant_url: str, tenant_api_url_suffix: str, tenant_authentication: dict, output_type='json') -> dict | str | io.BytesIO:
+def get_response_content_from_tenant(tenant_url: str, tenant_api_url_suffix: str, tenant_authentication: dict, output_type='json') -> dict | str | io.BytesIO | requests.Response:
     # Initialise output variable
     tenant_response_content = {}
     # Formulate headers
@@ -31,6 +31,9 @@ def get_response_content_from_tenant(tenant_url: str, tenant_api_url_suffix: str
             # bytes (e.g. file content)
             elif str(output_type).lower() == 'bytes':
                 tenant_response_content = io.BytesIO(tenant_response.content)
+            # Response object
+            elif str(output_type).lower() == 'response':
+                tenant_response_content = tenant_response
             # raw text file
             else:
                 tenant_response_content = tenant_response.text
@@ -38,6 +41,9 @@ def get_response_content_from_tenant(tenant_url: str, tenant_api_url_suffix: str
             # json format
             if str(output_type).lower() == 'json':
                 tenant_response_content = tenant_response.json()
+            # Response object
+            elif str(output_type).lower() == 'response':
+                tenant_response_content = tenant_response
             # raw text file
             else:
                 tenant_response_content = tenant_response.text
