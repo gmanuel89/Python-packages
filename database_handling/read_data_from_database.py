@@ -7,9 +7,9 @@
 ## Import libraries and function
 import psycopg2
 import pandas as pd
-from functions.database_handling.retrieve_host_from_jdbc_connection import retrieve_host_from_jdbc_connection
-from functions.database_handling.retrieve_database_from_jdbc_connection import retrieve_database_from_jdbc_connection
-from functions.csv_handling.convert_csv_content import convert_csv_content
+from database_handling.retrieve_host_from_jdbc_connection import retrieve_host_from_jdbc_connection
+from database_handling.retrieve_database_from_jdbc_connection import retrieve_database_from_jdbc_connection
+from csv_handling.convert_csv_content import convert_csv_content
 
 ## Read tabular data from DB
 def read_data_from_database(jdbc_connection_string, sql_username, sql_password, sql_query, output_type='dictionary') -> list[list] | list[dict]:

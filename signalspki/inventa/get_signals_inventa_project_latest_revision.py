@@ -5,7 +5,7 @@
 #####
 
 ## Import libraries and functions
-from functions.signalspki.common.get_response_content_from_tenant import get_response_content_from_tenant
+from signalspki.common.get_response_content_from_tenant import get_response_content_from_tenant
 
 ## Get project UID from name
 def get_signals_inventa_project_latest_revision(signals_inventa_project_uid: int, signals_inventa_tenant_url: str, signals_inventa_tenant_authentication: dict) -> int:

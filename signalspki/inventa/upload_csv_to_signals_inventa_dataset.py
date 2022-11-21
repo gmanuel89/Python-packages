@@ -6,7 +6,7 @@
 
 ## Import libraries and functions
 import io
-from functions.signalspki.common.post_response_content_from_tenant import post_response_content_from_tenant
+from signalspki.common.post_response_content_from_tenant import post_response_content_from_tenant
 
 ## Loads a CSV file into a Signals Inventa dataset
 def upload_csv_to_signals_inventa_dataset(input_csv_file: str | io.TextIOWrapper, input_data_name: str, signals_inventa_project_uid: int, signals_inventa_dataset_uid: int, signals_inventa_tenant_url: str, signals_inventa_tenant_authentication: dict) -> dict:

@@ -5,9 +5,9 @@
 #####
 
 ## Import libraries and functions
-from functions.signalspki.common.get_response_content_from_tenant import get_response_content_from_tenant
-from functions.signalspki.inventa.get_signals_inventa_project_status import get_signals_inventa_project_status
-from functions.signalspki.inventa.determine_if_all_the_project_datasets_are_loaded import determine_if_all_the_project_datasets_are_loaded
+from signalspki.common.get_response_content_from_tenant import get_response_content_from_tenant
+from signalspki.inventa.get_signals_inventa_project_status import get_signals_inventa_project_status
+from signalspki.inventa.determine_if_all_the_project_datasets_are_loaded import determine_if_all_the_project_datasets_are_loaded
 
 ## Determine if the Project needs loading
 def determine_if_signals_inventa_project_needs_loading(signals_inventa_tenant_url: str, signals_inventa_tenant_authentication: dict, signals_inventa_project_uid: int, force_loading=False) -> bool:

@@ -7,7 +7,7 @@
 ## Import libraries and functions
 import openpyxl
 import os
-from functions.excel_workbook_handling.remove_default_empty_sheet_from_workbook import remove_default_empty_sheet_from_workbook
+from excel_workbook_handling.remove_default_empty_sheet_from_workbook import remove_default_empty_sheet_from_workbook
 
 ## Write spreadsheet to file
 def write_workbook(spreadsheet_workbook: openpyxl.Workbook, output_folder='', file_name='', remove_default_empty_sheet=True) -> None:

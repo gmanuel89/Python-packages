@@ -6,8 +6,8 @@
 
 ## Import libraries and functions
 import tempfile, csv, os, io
-from functions.csv_handling.get_file_name_from_path import get_file_name_from_path
-from functions.csv_handling.write_csv_file import write_csv_file
+from csv_handling.get_file_name_from_path import get_file_name_from_path
+from csv_handling.write_csv_file import write_csv_file
 
 ## Materialises a CSV file content into a (temporary) CSV file
 def materialise_content_into_csv_file(csv_file_content: list[list] | list[dict], delete_temporary_file=False, path_where_to_save_the_file=None) -> io.TextIOWrapper:

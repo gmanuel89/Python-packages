@@ -5,9 +5,9 @@
 #####
 
 ## Import libraries and functions
-from functions.signalspki.inventa.get_signals_inventa_project_uid_from_name import get_signals_inventa_project_uid_from_name
-from functions.signalspki.inventa.get_signals_inventa_project_latest_revision import get_signals_inventa_project_latest_revision
-from functions.signalspki.common.get_response_content_from_tenant import get_response_content_from_tenant
+from signalspki.inventa.get_signals_inventa_project_uid_from_name import get_signals_inventa_project_uid_from_name
+from signalspki.inventa.get_signals_inventa_project_latest_revision import get_signals_inventa_project_latest_revision
+from signalspki.common.get_response_content_from_tenant import get_response_content_from_tenant
 
 ## Retrieves the list of dataset IDs for a Project revision
 def get_signals_inventa_project_dataset_uid_list(signals_inventa_project_name: str, signals_inventa_tenant_url: str, signals_inventa_tenant_authentication: dict, signals_inventa_project_revision=None) -> list[str]:

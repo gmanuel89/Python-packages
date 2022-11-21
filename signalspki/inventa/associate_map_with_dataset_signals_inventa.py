@@ -5,7 +5,7 @@
 #####
 
 ## Import libraries and functions
-from functions.signalspki.common.patch_response_content_from_tenant import patch_response_content_from_tenant
+from signalspki.common.patch_response_content_from_tenant import patch_response_content_from_tenant
 
 ## Associate a map to a dataset
 def associate_map_with_dataset_signals_inventa(signals_inventa_dataset_uid: str, signals_inventa_map_id: str, signals_inventa_project_uid: int, signals_inventa_tenant_url: str, signals_inventa_tenant_authentication: dict) -> dict:

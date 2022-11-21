@@ -5,7 +5,7 @@
 #####
 
 ## Import funcions and libraries
-from functions.signalspki.common.post_response_content_from_tenant import post_response_content_from_tenant
+from signalspki.common.post_response_content_from_tenant import post_response_content_from_tenant
 
 ## Creates a new dataset into an Inventa project
 def create_new_dataset_in_signals_inventa_project(signals_inventa_dataset_name: str, signals_inventa_project_uid: int, signals_inventa_tenant_url: str, signals_inventa_tenant_authentication: dict) -> dict:

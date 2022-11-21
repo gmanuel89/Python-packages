@@ -5,8 +5,8 @@
 #####
 
 ## Import libraries and functions
-from functions.signalspki.common.get_response_content_from_tenant import get_response_content_from_tenant
-from functions.excel_workbook_handling.get_spreadsheet_header import get_spreadsheet_header
+from signalspki.common.get_response_content_from_tenant import get_response_content_from_tenant
+from excel_workbook_handling.get_spreadsheet_header import get_spreadsheet_header
 import openpyxl
 
 ## Get list of users from tenant (from the Permissions Report, there is no direct API yet)

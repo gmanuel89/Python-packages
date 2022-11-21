@@ -5,7 +5,7 @@
 #####
 
 ## Import functions
-from functions.common.generate_string_with_concatenated_values import generate_string_with_concatenated_values
+from common.generate_string_with_concatenated_values import generate_string_with_concatenated_values
 
 ## Get the list of Endpoint Values from an Inventa Assay Endpoint Results Map
 def get_measurement_endpoint_values_from_signals_inventa_map(inventa_map: dict) -> str:

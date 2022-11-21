@@ -5,7 +5,7 @@
 #####
 
 ## Import libraries and functions
-from functions.signalspki.common.get_response_content_from_tenant import get_response_content_from_tenant
+from signalspki.common.get_response_content_from_tenant import get_response_content_from_tenant
 
 ## Determine if all the Project datasets are loaded
 def determine_if_all_the_project_datasets_are_loaded(signals_inventa_tenant_url: str, signals_inventa_tenant_authentication: dict, signals_inventa_project_uid: int) -> bool:

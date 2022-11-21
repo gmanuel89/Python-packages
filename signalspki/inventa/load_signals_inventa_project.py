@@ -5,8 +5,8 @@
 #####
 
 ## Import libraries and functions
-from functions.signalspki.inventa.determine_if_signals_inventa_project_needs_loading import determine_if_signals_inventa_project_needs_loading
-from functions.signalspki.common.post_response_content_from_tenant import post_response_content_from_tenant
+from signalspki.inventa.determine_if_signals_inventa_project_needs_loading import determine_if_signals_inventa_project_needs_loading
+from signalspki.common.post_response_content_from_tenant import post_response_content_from_tenant
 import json
 
 ## Load all the Datasets in a Project

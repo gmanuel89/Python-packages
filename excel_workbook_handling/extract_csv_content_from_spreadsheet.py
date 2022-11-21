@@ -7,7 +7,7 @@
 # Import libraries and functions
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.worksheet import Worksheet
-from functions.csv_handling.convert_csv_content import convert_csv_content
+from csv_handling.convert_csv_content import convert_csv_content
 
 ## Extract the content of a openpyxl Worksheet to a list (output type can be 'list' or 'dictionary')
 def extract_csv_content_from_spreadsheet(spreadsheet_sheet: Worksheet, output_type='list', column_indices=None) -> list[list] | list[dict]:

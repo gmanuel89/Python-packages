@@ -5,7 +5,7 @@
 #####
 
 ## Import libraries and functions
-from functions.signalspki.inventa.get_signals_inventa_external_connections import get_signals_inventa_external_connections
+from signalspki.inventa.get_signals_inventa_external_connections import get_signals_inventa_external_connections
 
 ## Determine if a data connection string is an External Connection set up in Inventa
 def determine_if_string_is_an_external_inventa_connection(data_connection_string: str, tenant_url: str, tenant_authentication: dict) -> bool:

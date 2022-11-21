@@ -5,7 +5,7 @@
 #####
 
 ## Import libraries and functions
-from functions.signalspki.common.get_response_content_from_tenant import get_response_content_from_tenant
+from signalspki.common.get_response_content_from_tenant import get_response_content_from_tenant
 
 ## Retrieve list of External Connections set up in Inventa
 def get_signals_inventa_external_connections(signals_inventa_tenant_url: str, signals_inventa_tenant_authentication: dict, output_type='text') -> list[str] | list[dict]:
