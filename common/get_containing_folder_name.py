@@ -1,22 +1,22 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
-# Updated date: 2022-10-07
+# Updated date: 2022-11-29
 #####
 
 ## Import libraries
 import os
 
-## Get Experiment name from folder
-def get_containing_folder_name(input_folder: str) -> str:
+## Get the name of the parent folder containing the file/folder
+def get_containing_folder_name(input_path: str) -> str:
     # Initialise output
-    experiment_name = None
+    containing_folder = None
     # Split the path name
-    if os.sep in input_folder:
-        path_split = input_folder.split(os.sep)
+    if os.sep in input_path:
+        path_split = input_path.split(os.sep)
     else:
-        path_split = input_folder.split('/')
+        path_split = input_path.split('/')
     # and take only the last element
-    experiment_name = path_split[len(path_split)-1]
+    containing_folder = path_split[len(path_split)-1]
     # return
-    return experiment_name
+    return containing_folder
