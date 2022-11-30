@@ -15,7 +15,7 @@ def get_output_format_radiobuttons():
     master.title('Output format')
     master.resizable(False,False)
     out_type = tkinter.StringVar(None)
-    out_type.set(None)
+    out_type.set('')
     selection_label = tkinter.Label(master)
     selection_label.config(text = 'Select the output file type')
     selection_label.pack()

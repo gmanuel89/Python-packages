@@ -1,7 +1,7 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
-# Updated date: 2022-10-07
+# Updated date: 2022-11-30
 #####
 
 ## Import libraries
@@ -9,9 +9,9 @@ import sys, subprocess, pkg_resources
 
 
 ## Install required packages
-def install_required_packages(required_packages: list[str]) -> None:
+def install_required_packages(list_of_packages: list[str]) -> None:
     # Convert to set
-    required_packages = set(required_packages)
+    required_packages = set(list_of_packages)
     # check installed packages
     installed_packages = {pkg.key for pkg in pkg_resources.working_set}
     # compared with missing packages

@@ -10,7 +10,7 @@ import json
 
 # TODO set automatic mandatory parameters for experiment creation
 # Create an Experiment in Signals Notebook (under a specified ancestor entity)
-def create_new_experiment(experiment_name: str, notebook_eid: str, template_eid: str, tenant_url: str, tenant_api_key: str) -> requests.Response:
+def create_new_experiment(experiment_name: str, notebook_eid: str, template_eid: str, tenant_url: str, tenant_api_key: str) -> str:
     # Initialise output
     new_experiment_eid = None
     # Fix tenant URL
