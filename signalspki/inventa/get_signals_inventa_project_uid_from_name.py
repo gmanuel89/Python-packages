@@ -16,8 +16,9 @@ def get_signals_inventa_project_uid_from_name(signals_inventa_project_name:str, 
         signals_inventa_tenant_url = signals_inventa_tenant_url + '/'
     # Retrieve content
     try:
-        signals_inventa_project_list_response_content = requests.get(signals_inventa_tenant_url + 'project-service/projects',
+        signals_inventa_project_list_response = requests.get(signals_inventa_tenant_url + 'project-service/projects',
                                                                     headers={'x-api-key': signals_inventa_tenant_api_key})
+        signals_inventa_project_list_response_content = signals_inventa_project_list_response.json()
     except:
         signals_inventa_project_list_response_content = None
     # Get project UID from list
