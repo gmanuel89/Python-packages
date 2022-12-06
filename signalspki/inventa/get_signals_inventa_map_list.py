@@ -1,22 +1,30 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
-# Updated date: 2022-10-07
+# Updated date: 2022-12-05
 #####
 
 ## Import libraries and functions
-from signalspki.common.get_response_content_from_tenant import get_response_content_from_tenant
+import requests
 
 ## Get list of maps from tenant
-def get_signals_inventa_map_list(signals_inventa_tenant_url: str, signals_inventa_tenant_authentication: dict, show_deleted_maps=False, output_type='string') -> list[str] | list[dict]:
+def get_signals_inventa_map_list(signals_inventa_tenant_url: str, signals_inventa_tenant_api_key: str, show_deleted_maps=False, output_type='string') -> list[str] | list[dict]:
     # Initialise output
     map_list = []
+    # Fix tenant URL
+    if not signals_inventa_tenant_url.endswith('/'):
+        signals_inventa_tenant_url = signals_inventa_tenant_url + '/'
     # Generate the suffix for the URL for API call
-    tenant_api_url_suffix = '/information-design-service/import-maps?limit=0'
+    tenant_api_url_suffix = 'information-design-service/import-maps?limit=0'
     if show_deleted_maps:
         tenant_api_url_suffix = tenant_api_url_suffix + '&showDeleted=true'
     # Retrieve content from tenant
-    signals_inventa_map_list_response_content = get_response_content_from_tenant(signals_inventa_tenant_url, tenant_api_url_suffix, signals_inventa_tenant_authentication)
+    try:
+        signals_inventa_map_list_response = requests.get(signals_inventa_tenant_url + tenant_api_url_suffix,
+                                                                    headers={'x-api-key': signals_inventa_tenant_api_key})
+        signals_inventa_map_list_response_content = signals_inventa_map_list_response.json()
+    except:
+        signals_inventa_map_list_response_content = None
     if str(output_type).lower() == 'string':
         # Add the name of the map to the final list
         for mp in signals_inventa_map_list_response_content:

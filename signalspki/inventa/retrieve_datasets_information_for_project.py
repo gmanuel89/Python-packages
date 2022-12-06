@@ -1,19 +1,26 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
-# Updated date: 2022-11-17
+# Updated date: 2022-12-05
 #####
 
 ### Import libraries and functions
-from signalspki.common.get_response_content_from_tenant import get_response_content_from_tenant
+import requests
 
 ### Retrieves information of the datasets for a project
-def retrieve_datasets_information_for_project(signals_inventa_tenant_url: str, signals_inventa_tenant_authentication: dict, signals_inventa_project_uid: int, signals_inventa_dataset_name: str) -> list[dict]:
+def retrieve_datasets_information_for_project(signals_inventa_tenant_url: str, signals_inventa_tenant_api_key: str, signals_inventa_project_uid: int, signals_inventa_dataset_name: str) -> list[dict]:
     # Initialise output variable
     datasets_information = []
+    # Fix tenant URL
+    if not signals_inventa_tenant_url.endswith('/'):
+        signals_inventa_tenant_url = signals_inventa_tenant_url + '/'
     # Retrieve content from tenant
-    tenant_url_suffix = 'project-service/projects/' + str(signals_inventa_project_uid) + '/revisions/0/datasets'
-    signals_inventa_datasets_information_response_content = get_response_content_from_tenant(signals_inventa_tenant_url, tenant_url_suffix, signals_inventa_tenant_authentication)
+    try:
+        signals_inventa_datasets_information_response = requests.get(signals_inventa_tenant_url + 'project-service/projects/' + str(signals_inventa_project_uid) + '/revisions/0/datasets',
+                                                                    headers={'x-api-key': signals_inventa_tenant_api_key})
+        signals_inventa_datasets_information_response_content = signals_inventa_datasets_information_response.json()
+    except:
+        signals_inventa_datasets_information_response_content = None
     # Extract the inforation of datasets in the Project
     if signals_inventa_datasets_information_response_content is not None:
         dataset_list = signals_inventa_datasets_information_response_content.get('datasets')

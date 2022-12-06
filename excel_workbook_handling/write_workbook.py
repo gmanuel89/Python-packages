@@ -1,7 +1,7 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
-# Updated date: 2022-10-07
+# Updated date: 2022-12-06
 #####
 
 ## Import libraries and functions
@@ -22,5 +22,6 @@ def write_workbook(spreadsheet_workbook: openpyxl.Workbook, output_folder='', fi
         file_name = 'Spreadsheet'
     if not file_name.endswith('.xlsx'):
         file_name = file_name + '.xlsx'
-    # Save the file
-    spreadsheet_workbook.save(file_name)
+    # Save the file (not if empty)
+    if len(spreadsheet_workbook.worksheets) > 0:
+        spreadsheet_workbook.save(file_name)

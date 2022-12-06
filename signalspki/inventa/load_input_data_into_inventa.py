@@ -1,7 +1,7 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
-# Updated date: 2022-10-17
+# Updated date: 2022-12-05
 #####
 
 ## Import libraries and functions
@@ -17,6 +17,6 @@ def load_input_data_into_inventa(signals_inventa_tenant_url: str, signals_invent
     # Determine if a new dataset must be created
     dataset_uid = determine_dataset_uid_for_file_upload(signals_inventa_tenant_url, signals_inventa_tenant_authentication, input_signals_inventa_project_name, input_signals_inventa_dataset_name, input_signals_inventa_map_name, maximum_number_of_files_per_dataset)
     # Add the data to the dataset (materialise the content first into a temporary file)
-    input_temporary_csv_file = materialise_content_into_csv_file(input_data, delete_temporary_file=True)
-    csv_upload_response = upload_csv_to_signals_inventa_dataset(input_temporary_csv_file, input_data_name, project_uid, dataset_uid, signals_inventa_tenant_url, signals_inventa_tenant_authentication)
+    input_temporary_csv_file = materialise_content_into_csv_file(input_data)
+    csv_upload_response = upload_csv_to_signals_inventa_dataset(input_temporary_csv_file.read(), input_data_name, project_uid, dataset_uid, signals_inventa_tenant_url, signals_inventa_tenant_authentication)
     return csv_upload_response

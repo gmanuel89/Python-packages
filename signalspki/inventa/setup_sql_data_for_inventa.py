@@ -15,25 +15,26 @@ from signalspki.inventa.associate_map_with_dataset_signals_inventa import associ
 from signalspki.inventa.setup_sql_entry_in_signals_inventa_dataset import setup_sql_entry_in_signals_inventa_dataset
 
 ## Loads the dataset into Signals Inventa
-def setup_sql_data_for_inventa(signals_inventa_tenant_url: str, signals_inventa_tenant_authentication: dict, input_signals_inventa_project_name: str, input_signals_inventa_dataset_name: str, input_signals_inventa_map_name: str, sql_query: str, input_data_name: str, signals_inventa_connection_name: str) -> dict:
+def setup_sql_data_for_inventa(signals_inventa_tenant_url: str, signals_inventa_tenant_api_key: str, input_signals_inventa_project_name: str, input_signals_inventa_dataset_name: str, input_signals_inventa_map_name: str, sql_query: str, input_data_name: str, signals_inventa_connection_name: str) -> dict:
     # Get the Project UID from its name
-    project_uid = get_signals_inventa_project_uid_from_name(input_signals_inventa_project_name, signals_inventa_tenant_url, signals_inventa_tenant_authentication)
+    project_uid = get_signals_inventa_project_uid_from_name(input_signals_inventa_project_name, signals_inventa_tenant_url, signals_inventa_tenant_api_key)
     # Get Map ID
-    map_id = get_signals_inventa_map_id_from_name(input_signals_inventa_map_name, signals_inventa_tenant_url, signals_inventa_tenant_authentication)
+    map_id = get_signals_inventa_map_id_from_name(input_signals_inventa_map_name, signals_inventa_tenant_url, signals_inventa_tenant_api_key)
     # Retrieve project latest revision
-    project_latest_revision = get_signals_inventa_project_latest_revision(project_uid, signals_inventa_tenant_url, signals_inventa_tenant_authentication)
+    project_latest_revision = get_signals_inventa_project_latest_revision(project_uid, signals_inventa_tenant_url, signals_inventa_tenant_api_key)
     # Determine if a new dataset must be created
-    project_dataset_list = get_signals_inventa_project_dataset_list(project_uid, signals_inventa_tenant_url, signals_inventa_tenant_authentication, 0)
+    project_dataset_list = get_signals_inventa_project_dataset_list(project_uid, signals_inventa_tenant_url, signals_inventa_tenant_api_key, 0)
     if str(input_signals_inventa_dataset_name) in project_dataset_list:
         # Get Dataset ID
-        dataset_uid = get_signals_inventa_project_dataset_uid_from_name(input_signals_inventa_dataset_name, input_signals_inventa_project_name, project_latest_revision, signals_inventa_tenant_url, signals_inventa_tenant_authentication)
+        dataset_uid = get_signals_inventa_project_dataset_uid_from_name(input_signals_inventa_dataset_name, input_signals_inventa_project_name, project_latest_revision, signals_inventa_tenant_url, signals_inventa_tenant_api_key)
         pass
     else:
         # Create a new dataset (and retrieve its UID)
-        dataset_creation_response = create_new_dataset_in_signals_inventa_project(input_signals_inventa_dataset_name, project_uid, signals_inventa_tenant_url, signals_inventa_tenant_authentication)
-        dataset_uid = dataset_creation_response.get('uid')
-        # Associate a map to the dataset
-        dataset_map_association = associate_map_with_dataset_signals_inventa(dataset_uid, map_id, project_uid, signals_inventa_tenant_url, signals_inventa_tenant_authentication)
+        dataset_creation_response = create_new_dataset_in_signals_inventa_project(input_signals_inventa_dataset_name, project_uid, signals_inventa_tenant_url, signals_inventa_tenant_api_key)
+        if dataset_creation_response is not None:
+            dataset_uid = dataset_creation_response.get('uid')
+            # Associate a map to the dataset
+            dataset_map_association = associate_map_with_dataset_signals_inventa(dataset_uid, map_id, project_uid, signals_inventa_tenant_url, signals_inventa_tenant_api_key)
     # Setup the SQL entry
-    sql_setup_response = setup_sql_entry_in_signals_inventa_dataset(sql_query, input_data_name, signals_inventa_connection_name, project_uid, dataset_uid, signals_inventa_tenant_url, signals_inventa_tenant_authentication)
+    sql_setup_response = setup_sql_entry_in_signals_inventa_dataset(sql_query, input_data_name, signals_inventa_connection_name, project_uid, dataset_uid, signals_inventa_tenant_url, signals_inventa_tenant_api_key)
     return sql_setup_response
