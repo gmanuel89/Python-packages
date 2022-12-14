@@ -1,7 +1,7 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
-# Updated date: 2022-11-30
+# Updated date: 2022-12-14
 #####
 
 ## Import libraries and functions
@@ -12,13 +12,11 @@ def get_experiment_eid_from_description(experiment_name: str, tenant_url: str, t
     # Initialise output
     experiment_eid = None
     # Fix tenant URL
-    if tenant_url.endswith('/'):
-        pass
-    else:
+    if not tenant_url.endswith('/'):
         tenant_url = tenant_url + '/'
     # Get the experiment EID from the description
     try:
-        tenant_experiment_response = requests.get(tenant_url + 'api/rest/v1.0/entities?includeTypes=experiment&page[offset]=0&page[limit]=100',
+        tenant_experiment_response = requests.get(tenant_url + 'api/rest/v1.0/entities?includeTypes=experiment' + '&includeOptions=untrashed' + '&page[offset]=0&page[limit]=100',
                                                 headers={'x-api-key': tenant_api_key})
         tenant_experiment_response_content = tenant_experiment_response.json()
         for resp in tenant_experiment_response_content.get('data'):
