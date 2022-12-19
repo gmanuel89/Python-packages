@@ -1,0 +1,54 @@
+#####
+# Author: Manuel Galli
+# e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
+# Updated date: 2022-12-19
+#####
+
+## Import libraries
+import csv, io, sys
+
+## Read input csv file content (returns a list of rows)
+def read_csv_file_content(input_csv_file_content: str, output_format='list') -> list[list] | list[dict]:
+    ## Convert the content string it into a IO string
+    input_csv_file_content = io.StringIO(input_csv_file_content)
+    # Prevent possible errors due to large columns (beyond 131072 characters)
+    try:
+        if output_format == 'list':
+            input_csv_file_lines = list(csv.reader(input_csv_file_content))
+        elif output_format == 'dictionary':
+            input_csv_file_dictionary = csv.DictReader(input_csv_file_content)
+            input_csv_file_lines = []
+            for row in input_csv_file_dictionary:
+                input_csv_file_lines.append(dict(row))
+        else:
+            input_csv_file_lines = csv.reader(input_csv_file_content)
+    except:
+        print("Presence of too large cells!!!")
+        field_size_limit = sys.maxsize
+        while True:
+            try:
+                csv.field_size_limit(field_size_limit)
+                break
+            except:
+                field_size_limit = int(field_size_limit / 10)
+        if output_format == 'list':
+            input_csv_file_lines = list(csv.reader(input_csv_file_content))
+        elif output_format == 'dictionary':
+            input_csv_file_dictionary = csv.DictReader(input_csv_file_content)
+            input_csv_file_lines = []
+            for row in input_csv_file_dictionary:
+                input_csv_file_lines.append(dict(row))
+        else:
+            input_csv_file_lines = csv.reader(input_csv_file_content)
+    ## Bring the row lengths on par
+    if output_format == 'list':
+        csv_column_header = input_csv_file_lines[0]
+        csv_column_number = len(csv_column_header)
+        for r in range(len(input_csv_file_lines)):
+            if len(input_csv_file_lines[r]) < csv_column_number:
+                for cdiff in range(csv_column_number - len(input_csv_file_lines[r])):
+                    input_csv_file_lines[r].append(None)
+    else:
+        pass
+    # return
+    return input_csv_file_lines
