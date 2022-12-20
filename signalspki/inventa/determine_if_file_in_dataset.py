@@ -1,3 +1,9 @@
+#####
+# Author: Manuel Galli
+# e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
+# Updated date: 2022-12-20
+#####
+
 ## Import libraries
 import hashlib
 from signalspki.inventa.get_files_info_in_dataset import get_files_info_in_dataset
