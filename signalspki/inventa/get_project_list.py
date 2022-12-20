@@ -16,14 +16,14 @@ def get_project_list(tenant_url: str, tenant_api_key: str) -> list[str]:
         tenant_url = tenant_url + '/'
     # Retrieve content
     try:
-        signals_inventa_project_list_response = requests.get(tenant_url + 'project-service/projects',
+        project_list_response = requests.get(tenant_url + 'project-service/projects',
                                                                     headers={'x-api-key': tenant_api_key})
-        signals_inventa_project_list_response_content = signals_inventa_project_list_response.json()
+        project_list_response_content = project_list_response.json()
     except:
-        signals_inventa_project_list_response_content = None
+        project_list_response_content = None
     # Get project list
-    if signals_inventa_project_list_response_content is not None:
-        for prj in signals_inventa_project_list_response_content:
+    if project_list_response_content is not None:
+        for prj in project_list_response_content:
             project_list.append(prj.get('name'))
     # return
     return project_list

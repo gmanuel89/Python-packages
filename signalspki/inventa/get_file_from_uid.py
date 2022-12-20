@@ -1,24 +1,27 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
-# Updated date: 2022-12-19
+# Updated date: 2022-12-20
 #####
 
 ## Import libraries and functions
 import requests
 
 ## Get the file in a Project via its UID
-def get_file_content_from_uid(signals_inventa_project_uid: int, signals_inventa_project_revision: int, signals_inventa_file_uid: int, signals_inventa_tenant_url: str, signals_inventa_tenant_api_key: str) -> str:
+def get_file_content_from_uid(project_uid: int, project_revision: int, file_uid: int, tenant_url: str, tenant_api_key: str) -> str:
     # Initialise output
     file_content = None
     # Fix tenant URL
-    if not signals_inventa_tenant_url.endswith('/'):
-        signals_inventa_tenant_url = signals_inventa_tenant_url + '/'
+    if not tenant_url.endswith('/'):
+        tenant_url = tenant_url + '/'
+    # Fix project revision
+    if project_revision is None:
+        project_revision = 0
     # Retrieve content
     try:
-        signals_inventa_project_file_response = requests.get(signals_inventa_tenant_url + 'export-service/projects/' + str(signals_inventa_project_uid) + '/revisions/' + str(signals_inventa_project_revision) + '/files/' + str(signals_inventa_file_uid) + '/download',
-                                                                    headers={'x-api-key': signals_inventa_tenant_api_key})
-        file_content = signals_inventa_project_file_response.content
+        project_file_response = requests.get(tenant_url + 'export-service/projects/' + str(project_uid) + '/revisions/' + str(project_revision) + '/files/' + str(file_uid) + '/download',
+                                            headers={'x-api-key': tenant_api_key})
+        file_content = project_file_response.content
     except:
         file_content = None
     # return

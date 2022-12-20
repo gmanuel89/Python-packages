@@ -19,12 +19,12 @@ def get_dataset_list_for_project(project_uid: int, tenant_url: str, tenant_api_k
         project_revision = 0
     # Retrieve content
     try:
-        signals_inventa_project_datasets_response = requests.get(tenant_url + 'project-service/projects/' + str(project_uid) + '/revisions/' + str(project_revision) + '/datasets',
+        datasets_response = requests.get(tenant_url + 'project-service/projects/' + str(project_uid) + '/revisions/' + str(project_revision) + '/datasets',
                                                                     headers={'x-api-key': tenant_api_key})
-        signals_inventa_project_datasets_response_content = signals_inventa_project_datasets_response.json()
-        for ds in signals_inventa_project_datasets_response_content.get('datasets'):
+        datasets_response_content = datasets_response.json()
+        for ds in datasets_response_content.get('datasets'):
             dataset_list.append(ds.get('name'))
     except:
-        signals_inventa_project_datasets_response_content = None
+        datasets_response_content = None
     # return
     return dataset_list

@@ -43,7 +43,7 @@ def consolidate_dataset(project_uid: int, dataset_uid: int, tenant_url: str, api
             file_upload_response = upload_csv_content_to_dataset(merged_file_content_string, dataset_name + '_merged_' + str(datetime.datetime.now()), project_uid, dataset_uid, tenant_url, api_key)
             if file_upload_response is not None and file_upload_response.ok:
                 # Delete the old files (if upload successful)
-                file_deletion_responses = delete_files_from_project(project_uid, file_uid_list, tenant_url, api_key)
+                file_deletion_responses = delete_files_from_project(project_uid, 0, file_uid_list, tenant_url, api_key)
                 # Determine if everything was successful
                 if file_deletion_responses:
                     for resp in file_deletion_responses.keys():
