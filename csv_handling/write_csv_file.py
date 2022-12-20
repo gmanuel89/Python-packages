@@ -13,7 +13,6 @@ def write_csv_file(csv_file_content: list[list] | list[dict], output_file_name: 
     if output_file_name == '' : output_file_name = 'CSV file'
     if not output_file_name.endswith('.csv') : output_file_name = output_file_name + '.csv'
     # Write file content
-    print('Generating CSV file: ' + output_file_name)
     with open (output_file_name, 'w+', encoding='UTF8', newline='') as output_file:
         # If it is a list of row...
         if isinstance(csv_file_content[0], list):

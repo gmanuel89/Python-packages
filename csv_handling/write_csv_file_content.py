@@ -1,7 +1,7 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
-# Updated date: 2022-12-19
+# Updated date: 2022-12-20
 #####
 
 ## Import libraries
@@ -11,8 +11,6 @@ import csv, io
 def write_csv_file_content(csv_file_content: list[list] | list[dict]) -> str:
     # Initialise output
     output_file_content_string = io.StringIO(newline='')
-    # Write file content
-    print('Generating CSV file...')
     # If it is a list of row...
     if isinstance(csv_file_content[0], list):
         csv_writer = csv.writer(output_file_content_string)

@@ -8,7 +8,7 @@
 import os
 
 ## Read files in a folder
-def read_files_in_folder(folder: str, file_types: list[str]) -> list[str]:
+def read_files_in_folder(folder: str, file_types=[]) -> list[str]:
     # Initialise output
     files_in_folder = []
     # List of files and folders

@@ -1,0 +1,29 @@
+#####
+# Author: Manuel Galli
+# e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
+# Updated date: 2022-12-05
+#####
+
+## Import libraries and functions
+import requests
+
+## Get list of projects from Signals Inventa tenant
+def get_project_list(tenant_url: str, tenant_api_key: str) -> list[str]:
+    # Initialise output
+    project_list = []
+    # Fix tenant URL
+    if not tenant_url.endswith('/'):
+        tenant_url = tenant_url + '/'
+    # Retrieve content
+    try:
+        signals_inventa_project_list_response = requests.get(tenant_url + 'project-service/projects',
+                                                                    headers={'x-api-key': tenant_api_key})
+        signals_inventa_project_list_response_content = signals_inventa_project_list_response.json()
+    except:
+        signals_inventa_project_list_response_content = None
+    # Get project list
+    if signals_inventa_project_list_response_content is not None:
+        for prj in signals_inventa_project_list_response_content:
+            project_list.append(prj.get('name'))
+    # return
+    return project_list
