@@ -12,12 +12,12 @@ from csv_handling.materialise_content_into_csv_file import materialise_content_i
 from signalspki.inventa.determine_dataset_uid_for_file_upload import determine_dataset_uid_for_file_upload
 
 ## Loads the dataset into Signals Inventa
-def load_input_data_into_inventa(signals_inventa_tenant_url: str, signals_inventa_tenant_authentication: dict, input_signals_inventa_project_name: str, input_signals_inventa_dataset_name: str, input_signals_inventa_map_name: str, input_data: list[dict], input_data_name: str, maximum_number_of_files_per_dataset: int) -> requests.Response:
+def load_input_data_into_inventa(tenant_url: str, tenant_api_key: str, project_name: str, dataset_name: str, map_name: str, input_data: list[dict], input_data_name: str, maximum_number_of_files_per_dataset: int) -> requests.Response:
     # Get the Project UID from its name
-    project_uid = get_project_uid_from_name(input_signals_inventa_project_name, signals_inventa_tenant_url, signals_inventa_tenant_authentication)
+    project_uid = get_project_uid_from_name(project_name, tenant_url, tenant_api_key)
     # Determine if a new dataset must be created
-    dataset_uid = determine_dataset_uid_for_file_upload(signals_inventa_tenant_url, signals_inventa_tenant_authentication, input_signals_inventa_project_name, input_signals_inventa_dataset_name, input_signals_inventa_map_name, maximum_number_of_files_per_dataset)
+    dataset_uid = determine_dataset_uid_for_file_upload(tenant_url, tenant_api_key, project_name, dataset_name, map_name, maximum_number_of_files_per_dataset)
     # Add the data to the dataset (materialise the content first into a temporary file)
     input_temporary_csv_file = materialise_content_into_csv_file(input_data)
-    csv_upload_response = upload_csv_content_to_dataset(input_temporary_csv_file.read(), input_data_name, project_uid, dataset_uid, signals_inventa_tenant_url, signals_inventa_tenant_authentication)
+    csv_upload_response = upload_csv_content_to_dataset(input_temporary_csv_file.read(), input_data_name, project_uid, dataset_uid, tenant_url, tenant_api_key)
     return csv_upload_response
