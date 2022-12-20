@@ -8,7 +8,7 @@
 import requests
 
 ## Retrieves the list of dataset for a Project revision
-def get_signals_inventa_project_dataset_list(signals_inventa_project_uid: int, signals_inventa_tenant_url: str, signals_inventa_tenant_api_key: str, signals_inventa_project_revision=0) -> list[str]:
+def get_signals_inventa_dataset_list(signals_inventa_project_uid: int, signals_inventa_tenant_url: str, signals_inventa_tenant_api_key: str, signals_inventa_project_revision=0) -> list[str]:
     # Initialise output
     dataset_list = []
     # Fix tenant URL
