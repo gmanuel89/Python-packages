@@ -6,7 +6,7 @@
 
 ## Import libraries and functions
 import datetime
-from signalspki.inventa.get_file_uids_for_dataset import get_file_uids_for_dataset
+from signalspki.inventa.get_files_info_in_dataset import get_files_info_in_dataset
 from signalspki.inventa.get_dataset_name_from_uid import get_dataset_name_from_uid
 from signalspki.inventa.upload_csv_content_to_dataset import upload_csv_content_to_dataset
 from signalspki.inventa.delete_files_from_project import delete_files_from_project
@@ -18,7 +18,7 @@ def consolidate_dataset(project_uid: int, dataset_uid: int, tenant_url: str, api
     # Initialise output
     operation_successful = False
     # Retrieve the list of file UIDs for the dataset
-    files_in_dataset = get_file_uids_for_dataset(project_uid, dataset_uid, tenant_url, api_key)
+    files_in_dataset = get_files_info_in_dataset(project_uid, 0, dataset_uid, tenant_url, api_key)
     # Merge them in one single file (only if there is more than one file)
     if len(files_in_dataset) > 1:
         merged_file_content_rows = []
@@ -39,7 +39,7 @@ def consolidate_dataset(project_uid: int, dataset_uid: int, tenant_url: str, api
             # Write the CSV file content to a string
             merged_file_content_string = write_csv_file_content(merged_file_content_rows)
             # Upload the new file (retrieve the dataset name for the name of the new entry)
-            dataset_name = get_dataset_name_from_uid(dataset_uid, project_uid, tenant_url, api_key)
+            dataset_name = get_dataset_name_from_uid(dataset_uid, project_uid, 0, tenant_url, api_key)
             file_upload_response = upload_csv_content_to_dataset(merged_file_content_string, dataset_name + '_merged_' + str(datetime.datetime.now()), project_uid, dataset_uid, tenant_url, api_key)
             if file_upload_response is not None and file_upload_response.ok:
                 # Delete the old files (if upload successful)
