@@ -25,8 +25,8 @@ def consolidate_dataset(project_uid: int, dataset_uid: int, tenant_url: str, api
         total_number_of_rows = 0
         file_uid_list = []
         for f in files_in_dataset:
-            # CSV
-            if f.get('filetype') == 'csv':
+            # Delimited (CSV, TSV)
+            if f.get('dataSourceType') == 'delimited':
                 csv_content = read_csv_file_content(f.get('fileContent'), 'dictionary')
                 total_number_of_rows = total_number_of_rows + len(csv_content)
                 merged_file_content_rows.extend(csv_content)

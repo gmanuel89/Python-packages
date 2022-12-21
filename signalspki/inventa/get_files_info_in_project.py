@@ -6,7 +6,7 @@
 
 ## Import libraries and functions
 import requests
-from signalspki.inventa.get_file_from_uid import get_file_content_from_uid
+from signalspki.inventa.get_file_content_from_uid import get_file_content_from_uid
 
 ## Get files info in a Project
 def get_files_info_in_project(project_uid: int, project_revision: int, tenant_url: str, tenant_api_key: str) -> list[dict]:
