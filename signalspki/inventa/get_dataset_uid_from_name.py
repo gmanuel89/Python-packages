@@ -20,7 +20,7 @@ def get_dataset_uid_from_name(dataset_name: str, project_uid: int, project_revis
     # Retrieve content
     try:
         datasets_response = requests.get(tenant_url + 'project-service/projects/' + str(project_uid) + '/revisions/' + str(project_revision) + '/datasets',
-                                                                    headers={'x-api-key': tenant_api_key})
+                                        headers={'x-api-key': tenant_api_key})
         datasets_response_content = datasets_response.json()
         # There can be more than one dataset with the same name
         dataset_uid_list = []
@@ -31,7 +31,10 @@ def get_dataset_uid_from_name(dataset_name: str, project_uid: int, project_revis
         if len(dataset_uid_list) == 1:
             dataset_uid = int(dataset_uid_list[0])
         else:
-            dataset_uid = dataset_uid_list
+            if len(dataset_uid_list) == 0:
+                dataset_uid = None
+            else:
+                dataset_uid = dataset_uid_list
     except:
         pass
     # return
