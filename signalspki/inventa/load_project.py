@@ -25,7 +25,7 @@ def load_project(tenant_url: str, tenant_api_key: str, project_uid: int, force_l
         except:
             project_load_response = None
     else:
-        # Try with loadNew and fall back on loadAll if not possible
+        # Try with loadNew...
         try:
             project_load_response = requests.post(tenant_url + 'job-service/load',
                                                     headers={'x-api-key': tenant_api_key},
@@ -33,7 +33,8 @@ def load_project(tenant_url: str, tenant_api_key: str, project_uid: int, force_l
                                                 )
         except:
             project_load_response = None
-        if (isinstance(project_load_response, str) and '"statusCode":405' in project_load_response) or (isinstance(project_load_response, dict) and project_load_response.get('statusCode') == 405):
+        # ...and fall back on loadAll if not possible
+        if project_load_response is not None and project_load_response.status_code == 405:
             try:
                 project_load_response = requests.post(tenant_url + 'job-service/load',
                                                     headers={'x-api-key': tenant_api_key},
