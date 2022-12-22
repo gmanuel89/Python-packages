@@ -4,7 +4,7 @@
 # Updated date: 2022-12-20
 #####
 
-## Import libraries and functions
+## Import libraries
 import requests
 
 ## Retrieves the list of dataset IDs for a Project revision

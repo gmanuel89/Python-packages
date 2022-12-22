@@ -5,8 +5,7 @@
 #####
 
 ## Import libraries
-import csv
-import sys
+import csv, sys
 
 ## Read input csv file (returns a list of rows)
 def read_csv_file(input_csv_file: str, output_format='list') -> list[list] | list[dict]:

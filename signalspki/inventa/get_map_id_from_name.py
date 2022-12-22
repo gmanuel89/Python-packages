@@ -4,7 +4,7 @@
 # Updated date: 2022-12-21
 #####
 
-## Import libraries and functions
+## Import libraries
 import requests
 
 ## Get map ID from name

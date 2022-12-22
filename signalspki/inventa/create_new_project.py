@@ -4,7 +4,7 @@
 # Updated date: 2022-12-20
 #####
 
-## Import funcions and libraries
+## Import libraries
 import requests, json
 
 ## Creates a new Inventa project

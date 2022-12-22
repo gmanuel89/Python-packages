@@ -4,7 +4,7 @@
 # Updated date: 2022-12-05
 #####
 
-## Import libraries and functions
+## Import libraries
 import requests
 
 ## Retrieves information of the datasets for a project

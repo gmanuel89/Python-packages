@@ -4,7 +4,7 @@
 # Updated date: 2022-10-07
 #####
 
-## Import libraries and functions
+## Import libraries
 import os
 
 ## Get the file name without the extension (from its path)

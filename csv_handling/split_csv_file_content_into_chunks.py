@@ -1,14 +1,14 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
-# Updated date: 2022-12-20
+# Updated date: 2022-12-22
 #####
 
-### Import libraries
+## Import libraries
 import math
 
-### Function to split the original CSV file content into chunks (input can be either the number of 'lines' per chunk or the number of 'chunks' to obtain)
-def split_csv_file_content_into_chunks(csv_file_content: list[list] | list[dict], mode = 'chunks', number_of_output_chunks = 2, number_of_lines_per_chunk = 10) -> list[list[str]] | list[list[dict]]:
+## Function to split the original CSV file content into chunks (input can be either the number of 'lines' per chunk or the number of 'chunks' to obtain)
+def split_csv_file_content_into_chunks(csv_file_content: list[list] | list[dict], number_of_output_chunks=2, number_of_lines_per_chunk=10) -> list[list[str]] | list[list[dict]]:
     # Initialise output variable
     csv_file_content_split = []
     # If there is no CSV content or only one line
@@ -29,13 +29,12 @@ def split_csv_file_content_into_chunks(csv_file_content: list[list] | list[dict]
     else:
         return csv_file_content
     # Calculate the number of lines per chunks
-    if mode == 'chunks':
-        if number_of_output_chunks is None or number_of_output_chunks == 0: number_of_output_chunks = 1
+    if number_of_output_chunks is not None and number_of_output_chunks > 0: # mode == 'chunks'
         number_of_lines_per_chunk = math.ceil(total_number_of_lines / number_of_output_chunks)
     # Use the input number of lines per chunks
-    else: # elif mode == 'lines':
-        number_of_lines_per_chunk = number_of_lines_per_chunk
-        if number_of_lines_per_chunk > total_number_of_lines: number_of_lines_per_chunk = total_number_of_lines
+    else: # mode == 'lines'
+        if number_of_lines_per_chunk is None or number_of_lines_per_chunk == 0 or number_of_lines_per_chunk > total_number_of_lines:
+            number_of_lines_per_chunk = total_number_of_lines
         # Calculate the number of chunks
         number_of_output_chunks = math.ceil(total_number_of_lines / number_of_lines_per_chunk)
     # Initialise index variables

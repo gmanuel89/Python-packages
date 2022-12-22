@@ -1,12 +1,11 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
-# Updated date: 2022-12-20
+# Updated date: 2022-12-22
 #####
 
-## Import libraries and functions
+## Import libraries
 import requests
-from signalspki.inventa.get_file_content_from_uid import get_file_content_from_uid
 
 ## Get files info in a Project
 def get_files_info_in_project(project_uid: int, project_revision: int, tenant_url: str, tenant_api_key: str) -> list[dict]:
@@ -32,7 +31,14 @@ def get_files_info_in_project(project_uid: int, project_revision: int, tenant_ur
             single_file_info['dataSetUid'] = prjfile.get('dataSetUid')
             single_file_info['projectRevisionUid'] = prjfile.get('projectRevisionUid')
             single_file_info['projectRevisionFileUid'] = prjfile.get('projectRevisionFileUid') # file UID
-            single_file_info['fileContent'] = get_file_content_from_uid(project_uid, project_revision, prjfile.get('projectRevisionFileUid'), tenant_url, tenant_api_key)
+            # Retrieve file content from UID
+            try:
+                project_file_response = requests.get(tenant_url + 'export-service/projects/' + str(project_uid) + '/revisions/' + str(project_revision) + '/files/' + str(prjfile.get('projectRevisionFileUid')) + '/download',
+                                                    headers={'x-api-key': tenant_api_key})
+                file_content = project_file_response.content
+            except:
+                file_content = None
+            single_file_info['fileContent'] = file_content
             # Decode file content if not binary
             if single_file_info['dataSourceType'] == 'delimited' and single_file_info['fileContent'] is not None:
                 single_file_info['fileContent'] = single_file_info['fileContent'].decode('utf-8-sig')

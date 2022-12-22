@@ -4,7 +4,7 @@
 # Updated date: 2022-12-21
 #####
 
-## Import packages
+## Import libraries
 import requests
 
 ## Deletes a dataset from an Inventa project

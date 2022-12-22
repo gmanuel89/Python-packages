@@ -4,7 +4,7 @@
 # Updated date: 2022-12-05
 #####
 
-## Import libraries and functions
+## Import libraries
 import requests
 
 ## Determine if all the datasets in a Project are loaded

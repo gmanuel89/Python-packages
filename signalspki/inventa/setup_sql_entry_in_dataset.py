@@ -4,7 +4,7 @@
 # Updated date: 2022-12-06
 #####
 
-## Import libraries and functions
+## Import libraries
 import requests, json
 
 ## Setup a SQL entry into a Signals Inventa dataset

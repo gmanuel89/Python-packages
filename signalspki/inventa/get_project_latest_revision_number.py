@@ -4,7 +4,7 @@
 # Updated date: 2022-12-20
 #####
 
-## Import libraries and functions
+## Import libraries
 import requests
 
 ## Get project latest revision number
