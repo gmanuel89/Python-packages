@@ -1,7 +1,7 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
-# Updated date: 2022-12-06
+# Updated date: 2022-12-22
 #####
 
 ## Import libraries
@@ -22,6 +22,6 @@ def get_project_status(tenant_url: str, tenant_api_key: str, project_uid: int) -
         # Retrieve the status of the project ("loadStatus")
         project_load_status = project_status_response_content.get('loadStatus')
     except:
-        project_status_response = None
+        project_load_status = None
     # return
     return project_load_status
