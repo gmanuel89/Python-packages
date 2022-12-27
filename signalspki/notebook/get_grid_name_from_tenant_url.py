@@ -1,3 +1,9 @@
+#####
+# Author: Manuel Galli
+# e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
+# Updated date: 2022-12-27
+#####
+
 ## Get grid name from tenant URL
 def get_grid_name_from_tenant_url(snb_grid_url: str) -> str:
     # Fix the final part of the URL

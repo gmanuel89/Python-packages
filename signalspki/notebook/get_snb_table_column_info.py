@@ -4,7 +4,7 @@
 # Updated date: 2022-12-14
 #####
 
-## Import libraries and functions
+## Import libraries
 import requests
 
 ## Get information about an ADT column from Signals Notebook
