@@ -7,10 +7,10 @@
 ## Import libraries
 import requests
 
-## Get list of users from tenant
-def get_user_list(tenant_url: str, tenant_api_key: str) -> list[str]:
+## Retrieves information about Users
+def get_users_info(tenant_url: str, tenant_api_key: str) -> list[str]:
     # Initialise output
-    user_list = []
+    users_info = []
     # Fix tenant URL
     if not tenant_url.endswith('/'):
         tenant_url = tenant_url + '/'
@@ -21,9 +21,8 @@ def get_user_list(tenant_url: str, tenant_api_key: str) -> list[str]:
         user_list_response_content = user_list_response.json()
         # Retrieve the user information specifically
         users = user_list_response_content.get('_embedded').get('sso-users')
-        for u in users:
-            user_list.append(u.get('userName'))
+        users_info = users
     except:
         pass
     # return
-    return user_list
+    return users_info
