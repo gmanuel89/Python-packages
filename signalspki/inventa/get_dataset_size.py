@@ -1,14 +1,14 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
-# Updated date: 2022-12-20
+# Updated date: 2022-12-28
 #####
 
 ## Import libraries
 import requests
 
 ## Retrieves size of a datasets in a project
-def retrieve_dataset_size(tenant_url: str, tenant_api_key: str, project_uid: int, dataset_uid: int, project_revision=0) -> list[dict]:
+def get_dataset_size(tenant_url: str, tenant_api_key: str, project_uid: int, dataset_uid: int, project_revision=0) -> list[dict]:
     # Initialise output variable
     dataset_size = None
     # Fix tenant URL
