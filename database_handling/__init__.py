@@ -1,0 +1,4 @@
+# List of functions
+from database_handling.read_data_from_database import read_data_from_database
+from database_handling.retrieve_database_from_jdbc_connection import retrieve_database_from_jdbc_connection
+from database_handling.retrieve_host_from_jdbc_connection import retrieve_host_from_jdbc_connection
