@@ -8,7 +8,7 @@
 import math
 
 ## Function to split the original CSV file content into chunks (input can be either the number of 'lines' per chunk or the number of 'chunks' to obtain)
-def split_csv_file_content_into_chunks(csv_file_content: list[list] | list[dict], number_of_output_chunks=2, number_of_lines_per_chunk=10) -> list[list[str]] | list[list[dict]]:
+def split_csv_file_content_into_chunks(csv_file_content: list[list] | list[dict], number_of_output_chunks=2, number_of_lines_per_chunk=10) -> list[list[list]] | list[list[dict]]:
     # Initialise output variable
     csv_file_content_split = []
     # If there is no CSV content or only one line
