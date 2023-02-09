@@ -1,0 +1,2 @@
+# List of functions
+from chemistry.calculate_fingerprint_for_compound_structure import calculate_fingerprint_for_compound_structure
