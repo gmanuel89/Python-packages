@@ -1,2 +1,3 @@
 # List of functions
 from chemistry.calculate_fingerprint_for_compound_structure import calculate_fingerprint_for_compound_structure
+from chemistry.calculate_fingerprint_for_compound_structure import determine_if_chemical_structure_is_valid
