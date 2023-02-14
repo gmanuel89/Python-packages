@@ -8,14 +8,11 @@
 import requests
 
 ## Retrieve the materials library object ID from its name
-def get_materials_library_id_from_name(tenant_url: str, tenant_api_key: str, materials_library_name: str):
+def get_materials_library_id_from_name(tenant_url: str, tenant_api_key: str, materials_library_name: str) -> str | None:
     ## Initialise output variable
     materials_library_id = None
     # Fix tenant URL
-    if tenant_url.endswith('/'):
-        pass
-    else:
-        tenant_url = tenant_url + '/'
+    if not tenant_url.endswith('/'): tenant_url = tenant_url + '/'
     # Retrieve the response from the tenant through the API
     try:
         tenant_response = requests.get(tenant_url + 'api/rest/v1.0/materials/libraries',
