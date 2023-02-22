@@ -1,24 +1,20 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
-# Updated date: 2023-01-11
+# Updated date: 2023-02-22
 #####
 
 ## Import libraries
 import requests
 
-
-## Retrieves size of a dataset in a project
-def get_dataset_size(tenant_url: str, tenant_api_key: str, project_uid: int, dataset_uid: int,
-                     project_revision=0) -> int | None:
+## Retrieves size of a dataset in a project (in terms of number of files)
+def get_number_of_files_in_dataset(tenant_url: str, tenant_api_key: str, project_uid: int, dataset_uid: int, project_revision=0) -> int | None:
     # Initialise output variable
     dataset_size = None
     # Fix tenant URL
-    if not tenant_url.endswith('/'):
-        tenant_url = tenant_url + '/'
+    if not tenant_url.endswith('/'): tenant_url = tenant_url + '/'
     # Fix project revision
-    if project_revision is None:
-        project_revision = 0
+    if project_revision is None: project_revision = 0
     # Retrieve content from tenant
     try:
         datasets_information_response = requests.get(
