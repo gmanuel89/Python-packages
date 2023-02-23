@@ -22,6 +22,7 @@ from signalspki.inventa.get_external_connections import get_external_connections
 from signalspki.inventa.get_file_content_from_uid import get_file_content_from_uid
 from signalspki.inventa.get_files_info_in_dataset import get_files_info_in_dataset
 from signalspki.inventa.get_files_info_in_project import get_files_info_in_project
+from signalspki.inventa.get_map_id_for_dataset import get_map_id_for_dataset
 from signalspki.inventa.get_map_id_from_name import get_map_id_from_name
 from signalspki.inventa.get_map_info import get_map_info
 from signalspki.inventa.get_map_list import get_map_list
@@ -48,4 +49,5 @@ from signalspki.inventa.load_project import load_project
 from signalspki.inventa.retrieve_datasets_information_for_project import retrieve_datasets_information_for_project
 from signalspki.inventa.setup_sql_data_for_inventa import setup_sql_data_for_inventa
 from signalspki.inventa.setup_sql_entry_in_dataset import setup_sql_entry_in_dataset
+from signalspki.inventa.split_dataset import split_dataset
 from signalspki.inventa.upload_csv_content_to_dataset import upload_csv_content_to_dataset
