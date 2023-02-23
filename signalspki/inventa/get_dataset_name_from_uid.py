@@ -1,14 +1,14 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
-# Updated date: 2022-12-20
+# Updated date: 2023-02-23
 #####
 
 ## Import libraries
 import requests
 
 ## Get dataset name from UID
-def get_dataset_name_from_uid(dataset_uid: int, project_uid: int, project_revision: int, tenant_url: str, tenant_api_key: str) -> int:
+def get_dataset_name_from_uid(dataset_uid: int, project_uid: int, project_revision: int, tenant_url: str, tenant_api_key: str) -> str | None:
     # Initialise output
     dataset_name = None
     # Fix tenant URL
@@ -24,7 +24,7 @@ def get_dataset_name_from_uid(dataset_uid: int, project_uid: int, project_revisi
         datasets_response_content = datasets_response.json()
         for ds in datasets_response_content.get('datasets'):
             if ds.get('uid') == dataset_uid:
-                dataset_name = ds.get('name')
+                dataset_name = str(ds.get('name'))
     except:
         datasets_response_content = None
     # return

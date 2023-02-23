@@ -53,11 +53,3 @@ def get_number_of_data_rows_in_dataset(tenant_url: str, tenant_api_key: str, pro
     # return
     return number_of_data_rows_in_dataset
 
-
-
-tenant_url = 'https://jnj-discovery-engine-sdf.sf.perkinelmercloud.com/'
-tenant_api_key = '1h4202g2b59mi832g5da3051gpnndlulvlh5g5d6gp1jkluma9q8'
-project_uid = 14
-dataset_uid = 2372
-number_of_data_rows = get_number_of_data_rows_in_dataset(tenant_url, tenant_api_key, project_uid, dataset_uid, 0)
-print('Number of data rows for project UID %s: %s' %(project_uid, number_of_data_rows))
