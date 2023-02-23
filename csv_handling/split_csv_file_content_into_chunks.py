@@ -1,7 +1,7 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
-# Updated date: 2023-01-18
+# Updated date: 2023-02-23
 #####
 
 ## Import libraries
@@ -46,11 +46,11 @@ def split_csv_file_content_into_chunks(csv_file_content: list[list] | list[dict]
     # Start cycling after the header
     for i in range(number_of_output_chunks):
         if lower_index is None:
-            lower_index = 1
+            lower_index = 0
         else:
             lower_index = lower_index + number_of_lines_per_chunk
         if higher_index is None:
-            higher_index = number_of_lines_per_chunk + 1
+            higher_index = number_of_lines_per_chunk
         else:
             higher_index = higher_index + number_of_lines_per_chunk
         # Do not go over the length of the file lines
