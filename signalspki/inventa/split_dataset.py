@@ -16,7 +16,7 @@ from csv_handling.read_csv_file_content import read_csv_file_content
 from csv_handling.write_csv_file_content import write_csv_file_content
 from csv_handling.split_csv_file_content_into_chunks import split_csv_file_content_into_chunks
 
-## Split the Inventa dataset in multiple datasets
+## Split the Inventa dataset in multiple datasets (it creates the new datasets and then removes the old one)
 def split_dataset(project_uid: int, dataset_uid: int, maximum_number_of_rows_per_dataset: int, tenant_url: str, api_key: str) -> bool:
     # Initialise outputs
     operation_successful = False
