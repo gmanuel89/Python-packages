@@ -55,7 +55,7 @@ def split_dataset(project_uid: int, dataset_uid: int, maximum_number_of_rows_per
                 # Write the CSV file content to a string
                 split_file_content_string = write_csv_file_content(split_content_rows)
                 # Upload the CSV file content
-                file_upload_response = upload_csv_content_to_dataset(split_file_content_string, dataset_name, project_uid, new_dataset_uid, tenant_url, api_key)
+                file_upload_response = upload_csv_content_to_dataset(split_file_content_string, dataset_name + '_split', project_uid, new_dataset_uid, tenant_url, api_key)
                 # Store the response
                 file_upload_responses[new_dataset_uid] = file_upload_response
     # Determine if everything was successful
