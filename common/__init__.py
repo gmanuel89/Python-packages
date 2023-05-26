@@ -1,4 +1,5 @@
 # List of functions
+from common.change_dictionary_keys import change_dictionary_keys
 from common.create_output_subfolder import create_output_subfolder
 from common.filter_list import filter_list
 from common.generate_string_with_concatenated_key_values import generate_string_with_concatenated_key_values

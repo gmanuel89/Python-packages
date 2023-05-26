@@ -1,7 +1,7 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
-# Updated date: 2022-10-07
+# Updated date: 2023-05-26
 #####
 
 ## The function result is a string which concatenates all the values in the input 'value_list' (separated by 'string_separator')
@@ -15,7 +15,9 @@ def generate_string_with_concatenated_values(value_list: list[str], string_separ
     if better_spacing:
         string_separator = ' ' + string_separator + ' '
     # Initialise the list onto which to perform actions
-    value_list_modified = value_list
+    value_list_modified = []
+    for vl in value_list:
+        value_list_modified.append(str(vl))
     # Get the unique values
     if remove_duplicates:
         value_list_modified = list(set(value_list))

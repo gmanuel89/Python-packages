@@ -6,12 +6,12 @@
 
 ## Import libraries and functions
 import requests
-from signalspki.inventa.get_map_id_from_name import get_map_id_from_name
-from signalspki.inventa.get_dataset_list_for_project import get_dataset_list_for_project
-from signalspki.inventa.get_dataset_uid_from_name import get_dataset_uid_from_name
-from signalspki.inventa.create_new_dataset_in_project import create_new_dataset_in_project
-from signalspki.inventa.associate_map_with_dataset import associate_map_with_dataset
-from signalspki.inventa.setup_sql_entry_in_dataset import setup_sql_entry_in_dataset
+from signals.inventa.get_map_id_from_name import get_map_id_from_name
+from signals.inventa.get_dataset_list_for_project import get_dataset_list_for_project
+from signals.inventa.get_dataset_uid_from_name import get_dataset_uid_from_name
+from signals.inventa.create_new_dataset_in_project import create_new_dataset_in_project
+from signals.inventa.associate_map_with_dataset import associate_map_with_dataset
+from signals.inventa.setup_sql_entry_in_dataset import setup_sql_entry_in_dataset
 
 ## Generates a SQL dataset entry into Signals Inventa
 def setup_sql_data_for_inventa(tenant_url: str, tenant_api_key: str, project_uid: int, dataset_name: str, map_id: str, sql_query: str, input_data_name: str, connection_name: str) -> requests.Response:

@@ -6,11 +6,11 @@
 
 ### Import functions
 import datetime
-from signalspki.inventa.create_new_dataset_in_project import create_new_dataset_in_project
-from signalspki.inventa.get_project_uid_from_name import get_project_uid_from_name
-from signalspki.inventa.get_map_id_from_name import get_map_id_from_name
-from signalspki.inventa.associate_map_with_dataset import associate_map_with_dataset
-from signalspki.inventa.retrieve_datasets_information_for_project import retrieve_datasets_information_for_project
+from signals.inventa.create_new_dataset_in_project import create_new_dataset_in_project
+from signals.inventa.get_project_uid_from_name import get_project_uid_from_name
+from signals.inventa.get_map_id_from_name import get_map_id_from_name
+from signals.inventa.associate_map_with_dataset import associate_map_with_dataset
+from signals.inventa.retrieve_datasets_information_for_project import retrieve_datasets_information_for_project
 
 ### Get the UID of the dataset where to upload files (existing one or newly created)
 def determine_dataset_uid_for_file_upload(tenant_url: str, tenant_api_key: str, project_uid: int, dataset_name: str, map_id: str, maximum_number_of_files_per_dataset=30) -> int:

@@ -6,10 +6,10 @@
 
 ## Import libraries and functions
 import datetime
-from signalspki.inventa.get_files_info_in_dataset import get_files_info_in_dataset
-from signalspki.inventa.get_dataset_name_from_uid import get_dataset_name_from_uid
-from signalspki.inventa.upload_csv_content_to_dataset import upload_csv_content_to_dataset
-from signalspki.inventa.delete_files_from_project import delete_files_from_project
+from signals.inventa.get_files_info_in_dataset import get_files_info_in_dataset
+from signals.inventa.get_dataset_name_from_uid import get_dataset_name_from_uid
+from signals.inventa.upload_csv_content_to_dataset import upload_csv_content_to_dataset
+from signals.inventa.delete_files_from_project import delete_files_from_project
 from csv_handling.read_csv_file_content import read_csv_file_content
 from csv_handling.write_csv_file_content import write_csv_file_content
 

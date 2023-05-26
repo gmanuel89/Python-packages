@@ -1,6 +1,6 @@
 ## Import libraries and functions
 import requests
-from signalspki.notebook.get_grid_template_eid_from_name import get_grid_template_eid_from_name
+from signals.notebook.get_grid_template_eid_from_name import get_grid_template_eid_from_name
 
 #TODO how to retrieve template from GRID
 ## Retrieve the template with which the table has been created
