@@ -13,7 +13,7 @@ def generate_string_with_concatenated_values(value_list: list[str], string_separ
     output_value = ''
     # Better spacing
     if better_spacing:
-        string_separator = ' ' + string_separator + ' '
+        string_separator = string_separator + ' '
     # Initialise the list onto which to perform actions
     value_list_modified = []
     for vl in value_list:

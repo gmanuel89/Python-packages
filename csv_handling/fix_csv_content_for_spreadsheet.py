@@ -16,7 +16,7 @@ def fix_csv_content_for_spreadsheet(csv_content: list[dict]) -> list[dict]:
         for csv_col in list(csv_row.keys()):
             # Fix the cell value
             if isinstance(csv_row[csv_col], list):
-                csv_row[csv_col] = generate_string_with_concatenated_values(csv_row[csv_col])
+                csv_row[csv_col] = generate_string_with_concatenated_values(csv_row[csv_col], better_spacing=True)
             elif isinstance(csv_row[csv_col], dict):
                 csv_row[csv_col] = json.dumps(csv_row[csv_col])
     # Return

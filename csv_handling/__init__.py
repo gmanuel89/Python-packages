@@ -1,5 +1,6 @@
 # List of functions
 from csv_handling.convert_csv_content import convert_csv_content
+from csv_handling.filter_csv_content import filter_csv_content
 from csv_handling.fix_csv_content_for_spreadsheet import fix_csv_content_for_spreadsheet
 from csv_handling.get_csv_header import get_csv_header
 from csv_handling.get_file_name_from_path import get_file_name_from_path
