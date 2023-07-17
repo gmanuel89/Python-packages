@@ -13,5 +13,6 @@ from common.read_folders_in_folder import read_folders_in_folder
 from common.read_items_in_folder import read_items_in_folder
 from common.remove_file_from_folder import remove_file_from_folder
 from common.replace_messy_characters import replace_messy_characters
+from common.write_file_content_to_file import write_file_content_to_file
 # List of UI functions
 # from common.ui import *
