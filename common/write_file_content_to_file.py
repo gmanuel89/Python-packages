@@ -9,13 +9,9 @@ import os
 import io
 
 ## Write a file content (bytes or string) to file
-def write_file_content_to_file(file_content: bytes | str, output_folder: str, output_file_name: str) -> bool:
+def write_file_content_to_file(file_content: bytes | str, output_file_name: str) -> bool:
     # Initialise output
     file_written_successfully = False
-    # Change the output folder
-    if output_folder is None or output_folder == '':
-        output_folder = os.getcwd()
-    os.chdir(output_folder)
     # Open the output file
     if isinstance(file_content, bytes):
         with open(output_file_name, 'wb') as out_file: 
