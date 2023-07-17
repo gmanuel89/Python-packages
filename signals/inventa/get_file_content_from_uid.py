@@ -1,14 +1,14 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
-# Updated date: 2022-12-20
+# Updated date: 2023-07-17
 #####
 
 ## Import libraries
 import requests
 
 ## Get the file in a Project via its UID
-def get_file_content_from_uid(project_uid: int, project_revision: int, file_uid: int, tenant_url: str, tenant_api_key: str) -> str:
+def get_file_content_from_uid(project_uid: int, project_revision: int, file_uid: int, tenant_url: str, tenant_api_key: str) -> bytes | None:
     # Initialise output
     file_content = None
     # Fix tenant URL
