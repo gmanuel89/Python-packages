@@ -4,6 +4,7 @@ from signals.inventa.associate_map_with_dataset import associate_map_with_datase
 from signals.inventa.consolidate_dataset import consolidate_dataset
 from signals.inventa.consolidate_datasets import consolidate_datasets
 from signals.inventa.create_new_dataset_in_project import create_new_dataset_in_project
+from signals.inventa.create_new_map import create_new_map
 from signals.inventa.create_new_project import create_new_project
 from signals.inventa.delete_dataset_from_project import delete_dataset_from_project
 from signals.inventa.delete_files_from_project import delete_files_from_project
