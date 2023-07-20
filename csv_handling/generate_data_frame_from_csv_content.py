@@ -1,6 +1,6 @@
 #####
 # Author: Manuel Galli
-# e-mail: gmanuel89@gmail.com / manuel.galli@perkinelmer.com
+# e-mail: gmanuel89@gmail.com / manuel.galli@revvity.com
 # Updated date: 2023-04-26
 #####
 
