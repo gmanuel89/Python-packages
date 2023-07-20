@@ -16,6 +16,7 @@ def install_required_packages_from_file(requirements_file_path = './requirements
         # Install
         python = sys.executable
         subprocess.check_call([python, '-m', 'pip', 'install', '-r', requirements_file_path], stdout=subprocess.DEVNULL)
+        required_packages_installed = True
     except:
         traceback.print_exc()
     # return
