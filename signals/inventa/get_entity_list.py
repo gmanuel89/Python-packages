@@ -1,7 +1,7 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@revvity.com
-# Updated date: 2022-12-06
+# Updated date: 2023-08-08
 #####
 
 ## Import libraries
@@ -18,10 +18,8 @@ def get_entity_list(signals_inventa_tenant_url: str, signals_inventa_tenant_api_
     try:
         signals_inventa_entity_list_response = requests.get(signals_inventa_tenant_url + 'information-design-service/entities',
                                                                     headers={'x-api-key': signals_inventa_tenant_api_key})
-        signals_inventa_entity_list_response_content = signals_inventa_entity_list_response.json()
-        # Sort alphabetically
-        entity_list = signals_inventa_entity_list_response_content.sort()
+        entity_list = signals_inventa_entity_list_response.json()
     except:
-        signals_inventa_entity_list_response_content = None
+        pass
     # return
-    return signals_inventa_entity_list_response_content
+    return entity_list

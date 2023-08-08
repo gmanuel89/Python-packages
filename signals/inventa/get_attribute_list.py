@@ -10,7 +10,7 @@ import urllib.parse, requests
 ## Get list of attributes from tenant
 def get_attribute_list(tenant_url: str, tenant_api_key: str, selected_entities=[]) -> list[dict]:
     # Initialise output
-    signals_inventa_attribute_list_response_content = None
+    signals_inventa_attribute_list_response_content = []
     # Fix tenant URL
     if not tenant_url.endswith('/'):
         tenant_url = tenant_url + '/'

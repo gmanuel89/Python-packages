@@ -21,17 +21,17 @@ def get_measurement_type_list(signals_inventa_tenant_url: str, signals_inventa_t
                                                                     data=json.dumps({})
                                                                     )
         signals_inventa_measurement_type_list_response_content = signals_inventa_measurement_type_list_response.text
+        signals_inventa_measurement_type_list_csv_content = csv.DictReader(io.StringIO(signals_inventa_measurement_type_list_response_content))
+        # extract the list of measurements
+        for row in signals_inventa_measurement_type_list_csv_content:
+            mtype_name = dict(row)['mtype||name']
+            if mtype_name != '':
+                measurement_type_list.append(mtype_name)
+        # Extract the unique values
+        measurement_type_list = list(set(measurement_type_list))
+        # Sort alphabetically
+        measurement_type_list.sort()
     except:
-        signals_inventa_measurement_type_list_response_content = None
-    signals_inventa_measurement_type_list_csv_content = csv.DictReader(io.StringIO(signals_inventa_measurement_type_list_response_content))
-    # extract the list of measurements
-    for row in signals_inventa_measurement_type_list_csv_content:
-        mtype_name = dict(row)['mtype||name']
-        if mtype_name != '':
-            measurement_type_list.append(mtype_name)
-    # Extract the unique values
-    measurement_type_list = list(set(measurement_type_list))
-    # Sort alphabetically
-    measurement_type_list.sort()
+        pass
     # return
     return measurement_type_list
