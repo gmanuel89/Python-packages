@@ -30,6 +30,7 @@ from signals.inventa.get_external_connections import get_external_connections
 from signals.inventa.get_file_content_from_uid import get_file_content_from_uid
 from signals.inventa.get_files_info_in_dataset import get_files_info_in_dataset
 from signals.inventa.get_files_info_in_project import get_files_info_in_project
+from signals.inventa.get_information_design_file_content import get_information_design_file_content
 from signals.inventa.get_map_id_for_dataset import get_map_id_for_dataset
 from signals.inventa.get_map_id_from_name import get_map_id_from_name
 from signals.inventa.get_map_info import get_map_info
@@ -62,4 +63,6 @@ from signals.inventa.retrieve_datasets_information_for_project import retrieve_d
 from signals.inventa.setup_sql_data_for_inventa import setup_sql_data_for_inventa
 from signals.inventa.setup_sql_entry_in_dataset import setup_sql_entry_in_dataset
 from signals.inventa.split_dataset import split_dataset
+from signals.inventa.upload_attachment_file_to_project import upload_attachment_file_to_project
 from signals.inventa.upload_csv_content_to_dataset import upload_csv_content_to_dataset
+from signals.inventa.upload_information_design_csv_file import upload_information_design_csv_file

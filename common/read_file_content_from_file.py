@@ -1,7 +1,7 @@
 #####
 # Author: Manuel Galli
 # e-mail: gmanuel89@gmail.com / manuel.galli@revvity.com
-# Updated date: 2023-07-20
+# Updated date: 2023-09-19
 #####
 
 ## Read a file's content (bytes or string)
@@ -10,7 +10,7 @@ def read_file_content_from_file(input_file_path: str, output_type = str) -> bool
     file_content = False
     # Open the inpuf file
     if output_type == bytes:
-        with open(input_file_path, 'rb', encoding='utf-8-sig') as in_file: 
+        with open(input_file_path, 'rb') as in_file: 
             file_content = in_file.read()
     else:
         with open(input_file_path, 'r', encoding='utf-8-sig') as in_file: 
